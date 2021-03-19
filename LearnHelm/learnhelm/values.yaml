@@ -79,3 +79,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+environment:
+    "ASPNETCORE_ENVIRONMENT": "Development"
