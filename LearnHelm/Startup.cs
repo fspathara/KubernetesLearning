@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,8 +40,8 @@ namespace LearnHelm
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHealthChecks("/startup");
-                endpoints.MapHealthChecks("/health", new HealthCheckOptions { Predicate = _ => false });
-                endpoints.MapHealthChecks("/ready", new HealthCheckOptions { Predicate = _ => false });
+                endpoints.MapHealthChecks("/health");
+                endpoints.MapHealthChecks("/ready");
                 endpoints.MapControllers();
             });
 

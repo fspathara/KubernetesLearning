@@ -10,7 +10,7 @@ namespace LearnHelm
         private static readonly Random _random = new Random();
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            var randomNumber = _random.Next(10);
+            var randomNumber = _random.Next(30);
             var result = randomNumber != 4 ?
                     HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
             return Task.FromResult(result);
