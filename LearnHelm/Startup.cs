@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +22,8 @@ namespace LearnHelm
 
             services.AddControllers();
 
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                    .AddCheck<HealthCheck>("Random");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,8 +40,10 @@ namespace LearnHelm
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHealthChecks("/startupHealth");
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions { Predicate = _ => false });
+                endpoints.MapHealthChecks("/ready", new HealthCheckOptions { Predicate = _ => false });
                 endpoints.MapControllers();
-                endpoints.MapHealthChecks("/health");
             });
 
             app.UseWelcomePage("/");
