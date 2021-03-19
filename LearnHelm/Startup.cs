@@ -40,7 +40,7 @@ namespace LearnHelm
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHealthChecks("/startupHealth");
+                endpoints.MapHealthChecks("/startup");
                 endpoints.MapHealthChecks("/health", new HealthCheckOptions { Predicate = _ => false });
                 endpoints.MapHealthChecks("/ready", new HealthCheckOptions { Predicate = _ => false });
                 endpoints.MapControllers();

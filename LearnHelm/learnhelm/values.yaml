@@ -82,3 +82,8 @@ affinity: {}
 
 environment:
     "ASPNETCORE_ENVIRONMENT": "Development"
+
+health:
+    livenessProbe: "/health"
+    readinessProbe: "/ready"
+    startupProbe: "/startup"
