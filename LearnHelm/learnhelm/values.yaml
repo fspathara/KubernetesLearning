@@ -85,6 +85,7 @@ environment:
     "ASPNETCORE_ENVIRONMENT": "Development"
 
 health:
+  paths:
     livenessProbe: "/health"
     readinessProbe: "/ready"
     startupProbe: "/startup"
