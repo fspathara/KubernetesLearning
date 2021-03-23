@@ -43,24 +43,24 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          #livenessProbe:
-          #  httpGet:
-          #    path: {{ .Values.health.livenessProbe | quote }}
-          #    port: 80
-          #  periodSeconds: 30
-          #  initialDelaySeconds: 10
-          #readinessProbe:
-          #  httpGet:
-          #    path: {{ .Values.health.readinessProbe | quote }}
-          #    port: 80
-          #  periodSeconds: 30
-          #  initialDelaySeconds: 10
-          #startupProbe:
-          #  httpGet:
-          #    path: {{ .Values.health.startupProbe | quote }}
-          #    port: 80
-          #  periodSeconds: 30
-          #  initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.health.livenessProbe | quote }}
+              port: 80
+            periodSeconds: 30
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.health.readinessProbe | quote }}
+              port: 80
+            periodSeconds: 30
+            initialDelaySeconds: 10
+          startupProbe:
+            httpGet:
+              path: {{ .Values.health.startupProbe | quote }}
+              port: 80
+            periodSeconds: 30
+            initialDelaySeconds: 10
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
