@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace LearnHelm
 {
@@ -23,6 +24,9 @@ namespace LearnHelm
 
             services.AddHealthChecks()
                     .AddCheck<HealthCheck>("Random");
+
+            services.AddHostedService<ApplicationLifetimeService>();
+            services.Configure<HostOptions>(opts => opts.ShutdownTimeout = TimeSpan.FromSeconds(45));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

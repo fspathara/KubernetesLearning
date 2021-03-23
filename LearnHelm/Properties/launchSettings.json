@@ -32,6 +32,14 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
       "publishAllPorts": true
+    },
+    "Bridge to Kubernetes": {
+      "commandName": "AzureDevSpacesLocal",
+      "launchBrowser": true
+    },
+    "Console": {
+      "commandName": "Project",
+      "jsWebView2Debugging": true
     }
   }
 }
