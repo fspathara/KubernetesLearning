@@ -22,7 +22,8 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DEPLOYMENT_ENVIRONMENT": "KUBERNETES"
       },
       "dotnetRunMessages": "true",
       "applicationUrl": "http://localhost:5000"
@@ -33,13 +34,13 @@
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
       "publishAllPorts": true
     },
-    "Bridge to Kubernetes": {
-      "commandName": "AzureDevSpacesLocal",
-      "launchBrowser": true
-    },
-    "Console": {
-      "commandName": "Project",
-      "jsWebView2Debugging": true
+    "Project": {
+      "commandName": "P",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

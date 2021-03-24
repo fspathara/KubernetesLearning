@@ -83,6 +83,7 @@ affinity: {}
 
 environment:
     "ASPNETCORE_ENVIRONMENT": "Development"
+    "DEPLOYMENT_ENVIRONMENT": "KUBERNETES"
 
 health:
   paths:
